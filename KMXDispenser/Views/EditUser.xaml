@@ -1,0 +1,41 @@
+﻿<Window x:Class="KMXDispenser.Views.EditUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:KMXDispenser.Views"
+      mc:Ignorable="d" 
+      Title="EditUser" 
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None" ResizeMode="NoResize" Width="695" Height="435"  
+        HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen"
+        >
+    <Border Background="#FF3D3D3D" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
+        <Border.Effect>
+            <DropShadowEffect/>
+        </Border.Effect>
+        <Grid x:Name="MainEditUser" Background="Transparent">
+            <Grid x:Name="GridEditUserTitle" Height="50" VerticalAlignment="Top" Background="Transparent" Margin="10,0,0,0">
+                <TextBlock x:Name="EditUserTitle" Text="Editar usuario" Foreground="White" FontSize="30" Margin="10,8,0,-8" HorizontalAlignment="Left" FontWeight="Bold" />
+            </Grid>
+
+            <Grid x:Name="GridEditUser" Margin="0,55,0,-0.4">
+                <Label x:Name="label" FontSize="24" Foreground="#DDFFFFFF" Content="Nombre de usuario" HorizontalAlignment="Left" Margin="20,45.076,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy" FontSize="24" Foreground="#DDFFFFFF" Content="Nivel de acceso" HorizontalAlignment="Left" Margin="45,121.5,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label_Copy1" FontSize="24" Foreground="#DDFFFFFF" Content="Clave de acceso" HorizontalAlignment="Left" Margin="47,194,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="50" FontSize="18" Margin="240,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="421" Background="White"/>
+                <PasswordBox x:Name="txtPass" HorizontalAlignment="Left"  Height="50" FontSize="18" Margin="240,194,0,0"  VerticalAlignment="Top" Width="421" Background="White"/>
+                <TextBox x:Name="comboAccess" FontSize="18" HorizontalAlignment="Left" Height="50" Margin="240,113,0,0" VerticalAlignment="Top" Width="421" Background="White"/>
+                <Button x:Name="btnSalveUser" HorizontalAlignment="Left" Margin="491,268,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21">
+                    <materialDesign:PackIcon Kind="ContentSave" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="70" Width="70"/>
+                </Button>
+                <Button x:Name="btnCloseForm" HorizontalAlignment="Left" Margin="289,268,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="btnCloseForm_Click">
+                    <materialDesign:PackIcon Kind="CloseCircleOutline" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="70" Width="70"/>
+                </Button>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

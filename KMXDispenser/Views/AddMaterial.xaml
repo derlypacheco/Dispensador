@@ -1,0 +1,71 @@
+﻿<Page x:Class="KMXDispenser.Views.AddMaterial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:KMXDispenser.Views"
+        mc:Ignorable="d"
+        Title="AddMaterial" Background="#FF3F3E3E" >
+    <Grid>
+        <Grid x:Name="SurtirBar" Height="100" VerticalAlignment="Top" Background="#FF323232">
+            <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=FadeIn, Duration=00:00:01}">
+                <TextBlock Text="Surtir" Foreground="White" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,11,0,9" TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect/>
+                    </TextBlock.Effect></TextBlock>
+            </materialDesign:TransitioningContent>
+        </Grid>
+
+
+        <Grid x:Name="MainContent">
+            <fa:ImageAwesome Icon="Qrcode" Foreground="White" Height="95" Margin="177,149,553.6,548.8" HorizontalAlignment="Center"/>
+            <TextBox x:Name="TxtQR" Height="50" Width="400" Margin="331,244,94.6,498.8" Background="White" FontSize="30" HorizontalAlignment="Center"/>
+            <Label x:Name="lblScanQR" Content="Escaneé QR" FontSize="36" Foreground="White" Height="50" Margin="120,244,510,498.8" HorizontalAlignment="Center"/>
+            <Grid x:Name="ScannedContent">
+                <materialDesign:Card x:Name="CardInfo" Height="268" Margin="103,337,92.6,0" >
+                    <materialDesign:Card.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFE8E8E8" Offset="0.954"/>
+                            <GradientStop Color="White" Offset="0.112"/>
+                            <GradientStop Color="#FFFEFF10" Offset="0.005"/>
+                            <GradientStop Color="White" Offset="0.032"/>
+                            <GradientStop Color="#FFEFF031" Offset="0.993"/>
+                        </LinearGradientBrush>
+                    </materialDesign:Card.Background>
+                    <materialDesign:Card.Effect>
+                        <DropShadowEffect/>
+                    </materialDesign:Card.Effect>
+                    <Grid>
+                        <Label x:Name="lblFm" Foreground="Black" FontSize="36" Content="FeinMetall " HorizontalAlignment="Left"  VerticalAlignment="Top" Height="51" Width="188"/>
+                        <Label x:Name="lblLA" Foreground="Black" FontSize="36" Content="Número LA" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="52" Width="226" Margin="0,81,0,0"/>
+                        <Label x:Name="lblTipo" Foreground="Black" FontSize="36" Content="Tipo" HorizontalAlignment="Left" VerticalAlignment="Top" Height="62" Width="180" Margin="2,167,0,0"/>
+                        <Label x:Name="lblStock" Foreground="Black" FontSize="36" Content="Stock" HorizontalAlignment="Right"  VerticalAlignment="Top" Height="51" Width="204" Margin="0,0,62.4,0"/>
+                        <Label x:Name="lblFaltantes" Foreground="Black" FontSize="36" Content="Faltantes" HorizontalAlignment="Right"  VerticalAlignment="Top" Height="51" Width="256" Margin="0,167,10.4,0"/>
+                    </Grid>
+                </materialDesign:Card>
+                <Button x:Name="btnImagen" Background="Transparent" Foreground="#FF2F2F2F" HorizontalAlignment="Left" Margin="66,663,0,0" VerticalAlignment="Top" Width="329" Height="120" Click="btnImagen_Click" FontSize="36" BorderThickness="0">
+                    <Grid x:Name="BtnImagen">
+                        <fa:ImageAwesome Icon="Image" Foreground="White" Height="60" Width="60" HorizontalAlignment="Left" Margin="-32,26,0,26"></fa:ImageAwesome>
+                        <TextBlock x:Name="TxtBlImage" FontSize="40" Margin="44,0,0.2,0" Foreground="White">Mostrar<LineBreak/>Imagen</TextBlock>
+                    </Grid>
+                </Button>
+                <Button x:Name="BtnSurtir"  FontSize="36" Background="Transparent" Foreground="White" HorizontalAlignment="Right" Margin="0,663,77.6,0" VerticalAlignment="Top" Width="310" Height="120" Click="BtnSurtir_Click" BorderThickness="0">
+                    <Grid x:Name="BtnSurtirContent">
+                        <materialDesign:PackIcon Kind="AddShoppingCart" Width="100" Height="100"  Margin="-114,0,0,0"/>
+                        <TextBlock Text="Surtir" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="90" Margin="0,0,-115,0" Width="127" FontSize="48"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="BtnScan"  FontSize="36" Background="Transparent" Foreground="White" HorizontalAlignment="Center" Margin="207,663,230.6,0" VerticalAlignment="Top" Width="388" Height="120" Click="BtnSurtir_Click" BorderThickness="0">
+                    <Grid x:Name="BtnScanContent">
+                        <materialDesign:PackIcon Kind="Qrcode" Width="100" Height="100"  Margin="-114,0,0,0"/>
+                        <TextBlock Text="Escanear" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="90" Margin="0,0,-181,0" Width="193" FontSize="48"/>
+                    </Grid>
+                </Button>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Page>

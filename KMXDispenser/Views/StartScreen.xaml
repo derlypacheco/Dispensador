@@ -1,0 +1,24 @@
+﻿<Window x:Class="KMXDispenser.Views.StartScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KMXDispenser.Views"
+        mc:Ignorable="d"
+        Title="StartScreen" Height="450" Width="800" WindowState="Maximized" WindowStyle="None" AllowsTransparency="True" Background="#FF343434" Loaded="Window_Loaded" >
+    <Grid Margin="0,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Img/bannerInicio.png"/>
+        </Grid.Background>
+        <Label Name="lblLoadinfo" Content="Cargando información necesaria" Foreground="White" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="28" Margin="205,0,178,22.6" Width="417" VerticalAlignment="Bottom"/>
+        <ProgressBar Name="BarStart" HorizontalAlignment="Center" Value="100" Height="38" Foreground="#fff0de21" BorderBrush="Transparent" Background="Transparent" Margin="101,0,110,73.6" VerticalAlignment="Bottom" Width="589"/>
+        <Label x:Name="lblVersion" Content="Versión 1.5" Foreground="White" HorizontalContentAlignment="Right" HorizontalAlignment="Right" FontSize="24" Margin="0,10,10,0" Width="159" VerticalAlignment="Top" Height="43" VerticalContentAlignment="Center"/>
+        <Grid Margin="239,216,238,155.6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="78" Width="323">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Img/Kufferath.png" />
+            </Grid.Background>
+
+        </Grid>
+
+    </Grid>
+</Window>
