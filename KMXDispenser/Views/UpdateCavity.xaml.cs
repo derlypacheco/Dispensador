@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace KMXDispenser.Views
 {
@@ -25,6 +27,101 @@ namespace KMXDispenser.Views
             InitializeComponent();
         }
 
+
+        private void loadDatos()
+        {
+            WpfDisp.cnnClass.Conectar();
+            try
+            {
+                WpfDisp.cnnClass.cnn.Open();
+                MySqlDataAdapter cmd = new MySqlDataAdapter("CALL sp_resultCavDet('" + WpfDisp.cnnClass.publicCavDet + "', '" + WpfDisp.cnnClass.ID_Dispensador + "')", WpfDisp.cnnClass.cnn);
+                DataTable dt = new DataTable();
+                cmd.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    string idLAFM = dt.Rows[0]["id_la_disp"].ToString();
+                    TxtCavity.Text = dt.Rows[0]["cavidad_relacion"].ToString();
+                    TxtCandado.Text = dt.Rows[0]["pinBlock_relacion"].ToString();
+                    TxtContador.Text = dt.Rows[0]["pinContador_relacion"].ToString();
+                    TxtStockMin.Text = dt.Rows[0]["min_stock_relacion"].ToString();
+                    TxtStockMax.Text = dt.Rows[0]["max_stock_relacion"].ToString();
+                    ComboIDCartucho.Text = dt.Rows[0]["Cartucho_relacion"].ToString();
+                    WpfDisp.cnnClass.idModRelaciones = dt.Rows[0]["id_relaciones"].ToString();
+                    MostrarNombreLAFM(idLAFM);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados, la ventana se cerrara", "Sin datos", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    this.Close();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void MostrarNombreLAFM(string idLAFM)
+        {
+            WpfDisp.cnnClass.Conectar();
+            try
+            {
+                WpfDisp.cnnClass.cnn.Open();
+                MySqlDataAdapter cmd = new MySqlDataAdapter("CALL sp_mostrarNombreLA('" + idLAFM + "')", WpfDisp.cnnClass.cnn);
+                DataTable dt = new DataTable();
+                cmd.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    TxtNum.Text = dt.Rows[0]["FMproveedor"].ToString();
+                    //cnnClass.idLAPublicUpdate = dt.Rows[0]["id_la_disp"].ToString();
+                }
+                WpfDisp.cnnClass.cnn.Close();
+            }
+            catch
+            {
+
+            }
+        }
+
+        public string idLASP;
+        public bool valorRegreso;
+        private bool BuscarWFMLA()
+        {
+            WpfDisp.cnnClass.Conectar();
+            try
+            {
+                WpfDisp.cnnClass.cnn.Open();
+                MySqlDataAdapter cmd = new MySqlDataAdapter("CALL sp_buskFMDisp('" + TxtNum.Text.Trim() + "')", WpfDisp.cnnClass.cnn);
+                DataTable dt = new DataTable();
+                cmd.Fill(dt);
+                if (dt.Rows.Count == 1)
+                {
+                    TxtNum.BorderBrush = System.Windows.Media.Brushes.Green;
+
+                    valorRegreso = true;
+                    idLASP = dt.Rows[0]["id_la_disp"].ToString();
+                    //cnnClass.idLAPublicUpdate = dt.Rows[0]["id_la_disp"].ToString();
+                    WpfDisp.cnnClass.imgPIN = "https://spa-kufferath.mx/" + dt.Rows[0]["foto_la_disp"].ToString();
+                    BtnShowImage.IsEnabled = true;
+                    BtnShowImage.Visibility = Visibility.Visible;
+                    //MessageBox.Show(idLASP);
+                    WpfDisp.cnnClass.cnn.Close();
+                }
+                else
+                {
+                    TxtNum.BorderBrush = System.Windows.Media.Brushes.Red;
+                    WpfDisp.cnnClass.cnn.Close();
+                    valorRegreso = false;
+                }
+                BtnSearchNum.IsEnabled = true;
+            }
+            catch
+            {
+            }
+            return valorRegreso;
+        }
+
+
         private void btnCloseForm_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -37,12 +134,54 @@ namespace KMXDispenser.Views
 
         private void BtnShowImage_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                ShowImage FrmImagen = new ShowImage();
+                FrmImagen.ShowDialog();
+            }
+            catch
+            {
 
+            }
         }
 
         private void BtnSearchNum_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                BtnSearchNum.IsEnabled = false;
+                BuscarWFMLA();
+            }
+            catch
+            {
 
+            }
+        }
+
+        private void llenarComboCartucho()
+        {
+            try
+            {
+                for (int i=1; i <= WpfDisp.cnnClass.cartuchos; i++)
+                {
+                    ComboIDCartucho.Items.Add(i);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No se han cargado los cartuchos disponibles","Cargando cartuchos", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            llenarComboCartucho();
+            //label.Content = "Cavidad seleccionada: "+cnnClass.publicCav;
+            loadDatos();
+            TxtNum.BorderBrush = System.Windows.Media.Brushes.Transparent;
+            //btnSave.IsEnabled = false;
+            BtnShowImage.Visibility = Visibility.Hidden;
+            BtnShowImage.IsEnabled = false;
         }
     }
 }

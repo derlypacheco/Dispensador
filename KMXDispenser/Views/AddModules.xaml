@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="AddModules" 
-      Width="1920" Height="1080"
+      Width="1920" Height="1080" Loaded="Page_Loaded"
       >
 
     <Grid x:Name="AddModulesGridMain" Background="#FF404040" Margin="0,0,0.2,1.4">
@@ -26,7 +26,7 @@
                     </Grid.ColumnDefinitions>
                     <Label x:Name="LblNombreID" Content="Nombre ID:" FontSize="28" Padding="10,0,0,0"/>
                     <TextBox x:Name="TxtNombreID" FontSize="28" Background="{x:Null}" VerticalAlignment="Top" Height="42" Width="207"  HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="164,0,0,-0.4"/>
-                    <Button x:Name="SearchWebButton" Height="44"  VerticalAlignment="Top" Background="#fff0de21" HorizontalAlignment="Left"  Width="72" Grid.Column="2" Margin="10.4,-2,0,-0.4">
+                    <Button x:Name="SearchWebButton" Height="44"  VerticalAlignment="Top" Background="#fff0de21" HorizontalAlignment="Left"  Width="72" Grid.Column="2" Margin="10.4,-2,0,-0.4" Click="SearchWebButton_Click">
                         <materialDesign:PackIcon Kind="SearchWeb" Width="40" Height="40" Foreground="Black"/>
                     </Button>
                 </Grid>
@@ -55,6 +55,24 @@
                     <Label x:Name="LblPartNumber" Content="N° Parte:" Grid.Column="0" FontSize="28" HorizontalAlignment="Left"  Width="155" Padding="10,0,0,0" Margin="10"/>
                     <TextBox x:Name="TxtPartNumber" FontSize="28" Background="{x:Null}" VerticalAlignment="Top" Height="42" Margin="142,6,-0.2,0" HorizontalAlignment="Stretch" Grid.ColumnSpan="4"/>
                 </Grid>
+
+
+                <Grid x:Name="GridNumberM" Width="498" Canvas.Top="424">
+                    <!--N° Parte-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LblNumberM" Content="Número M:" Grid.Column="0" FontSize="28" HorizontalAlignment="Left"  Width="155" Padding="10,0,0,0" Margin="10"/>
+                    <TextBox x:Name="TxtNumberM" FontSize="28" Background="{x:Null}" VerticalAlignment="Top" Height="42" Margin="170,6,9.6,0" HorizontalAlignment="Stretch"/>
+                </Grid>
+
+
+
+
                 <Grid x:Name="GridLine" Margin="0,330,0,115.4">
                     <!--Linea-->
                     <Grid.ColumnDefinitions>
@@ -67,33 +85,33 @@
                     <Button x:Name="NewLinebButton" Height="40" VerticalAlignment="Top" HorizontalAlignment="Left"  Background="#fff0de21" Width="80" Grid.Column="1" Margin="10,0,0,0" Click="NewLinebButton_Click">
                         <materialDesign:PackIcon Kind="Add" Width="40" HorizontalAlignment="Center" Height="30" Foreground="Black" />
                     </Button>
-                    <ComboBox x:Name="CboxLine" HorizontalAlignment="Left" Grid.Column="2"  VerticalAlignment="Top" Width="305"  Height="40" Margin="10,0,-26,0" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="CboxLine" HorizontalAlignment="Left" FontSize="30" Grid.Column="2"  VerticalAlignment="Top" Width="305"  Height="55" Margin="10.4,-7,-26.6,0" Grid.ColumnSpan="2" DropDownOpened="CboxLine_DropDownOpened"/>
                 </Grid>
-                <Grid x:Name="GridDescription" Height="210" Margin="0,450,0,0">
+                <Grid x:Name="GridDescription" Height="214" Canvas.Top="495" Width="570">
                     <!--Descripción-->
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150*"/>
+                        <ColumnDefinition Width="183*"/>
+                        <ColumnDefinition Width="386*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
-                        <RowDefinition Height="16*"/>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition Height="73*"/>
                     </Grid.RowDefinitions>
-                    <Label x:Name="LblDesc" Content="Descripción:" Grid.Row="0" FontSize="28" HorizontalAlignment="Left"  Width="170" Margin="10,0,0,13.4" Padding="10,0,0,0"/>
-                    <TextBox x:Name="TxtDesc" Grid.Row="1" HorizontalAlignment="Left" Height="112" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" FontSize="28" Margin="20,0.4,0,0" Padding="10,0,0,0" />
+                    <Label x:Name="LblDesc" Content="Descripción:" Grid.Row="0" FontSize="28" HorizontalAlignment="Left"  Width="170" Margin="10,10,0,37.2" Padding="10,0,0,0"/>
+                    <TextBox x:Name="TxtDesc" Grid.Row="1" HorizontalAlignment="Left" Height="49" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="540" AcceptsReturn="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" FontSize="28" Margin="20,3.8,0,0" Padding="10,0,0,0" Grid.ColumnSpan="2" />
+                    <Button x:Name="btnAddModule" Height="52" VerticalAlignment="Top" HorizontalAlignment="Left"  Background="#fff0de21" Width="133" Grid.Column="1" Margin="229.8,57.8,0,0" Grid.Row="1" Click="btnAddModule_Click">
+                        <materialDesign:PackIcon Kind="ContentSave" Width="40" HorizontalAlignment="Center" Height="50" Foreground="Black" /> 
+                    </Button>
                 </Grid>
-                <Grid x:Name="InfoCavDetGrid" Background="White" Height="254" Canvas.Left="629" Canvas.Top="2" Width="618">
+                <Grid x:Name="InfoCavDetGrid" Background="White" Height="707" Canvas.Left="629" Canvas.Top="2" Width="618">
                     <Grid x:Name="InfoCavDetTitle" Height="50" Background="#FFDCD505" VerticalAlignment="Top">
                         <TextBlock x:Name="TxtBlCavDet" Text="Cavidades y Detecciones" FontSize="30"/>
 
                     </Grid>
-                    <DataGrid x:Name="DataGridCavDet" Margin="0,50,-0.2,0"/>
+                    <DataGrid x:Name="DataGridCavDet" FontSize="30" Margin="0,50,-0.2,0" SelectedCellsChanged="DataGridCavDet_SelectedCellsChanged"/>
                 </Grid>
 
-                <Grid x:Name="InfoImgConn" Height="300" Background="White" Canvas.Left="629" Canvas.Top="268" Width="618">
-                    <Grid x:Name="ImgConnGrid" Height="50" Background="#FFDCD505" VerticalAlignment="Top">
-                        <TextBlock x:Name="TxtBlImgConn" Text="Imagen" FontSize="30" TextAlignment="Left"/>
-                    </Grid>
-                </Grid>
+
 
             </Canvas>
         </Grid>

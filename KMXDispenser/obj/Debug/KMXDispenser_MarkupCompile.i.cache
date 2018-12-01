@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sergi\source\repos\KMXDispenser\KMXDispenser\obj\Debug\
+C:\Users\derly\OneDrive\KMXDispenser\Dispensador\KMXDispenser\obj\Debug\
 KMXDispenser
 none
 false
 DEBUG;TRACE
-C:\Users\sergi\source\repos\KMXDispenser\KMXDispenser\App.xaml
+C:\Users\derly\OneDrive\KMXDispenser\Dispensador\KMXDispenser\App.xaml
 21-727840824
 8-554976
-3578564958
-17-311936807
+361299124750
+18-1406618706
 AddOns\OnScreenKeyboard.xaml;MainWindow.xaml;Views\AddLine.xaml;Views\AddMaterial.xaml;Views\AddModules.xaml;Views\Dashboard.xaml;Views\DispenserQRResult.xaml;Views\EditUser.xaml;Views\Modules.xaml;Views\ModulesInfo.xaml;Views\NewUser.xaml;Views\ScanQRDispenser.xaml;Views\Search.xaml;Views\SearchDispenser.xaml;Views\ShowImage.xaml;Views\StartScreen.xaml;Views\UpdateCavity.xaml;Views\UserInformation.xaml;Views\Users.xaml;Views\VerifyFingerprint.xaml;Views\VerifySupplying.xaml;
 
-False
+True
 

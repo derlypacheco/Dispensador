@@ -47,6 +47,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\WpfDisp\bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -70,6 +73,7 @@
     <Compile Include="AddOns\OnScreenKeyboard.xaml.cs">
       <DependentUpon>OnScreenKeyboard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cnnClass.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="ViewModels\Common\INavigationService.cs" />
     <Compile Include="ViewModels\Common\MyObservableObject.cs" />
@@ -240,6 +244,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Img\nofoto.jpg" />
     <Resource Include="Img\Kufferath.png" />
     <Resource Include="Img\bannerInicio.png" />
     <EmbeddedResource Include="Properties\Resources.resx">

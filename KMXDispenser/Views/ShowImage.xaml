@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMXDispenser.Views"
         mc:Ignorable="d"
-        Title="ShowImage" Height="450" Width="800" WindowStyle="None" MouseDown="MainImageContainer_MouseDown">
+        Title="Visor de Imagen" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized" MouseDown="MainImageContainer_MouseDown" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid x:Name="MainImageContainer" MouseDown="MainImageContainer_MouseDown">
         <Image x:Name="image" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Stretch" Source="https://spa-kufferath.mx/img/pines/nofoto.jpg" >
 

@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:KMXDispenser.Views"
       mc:Ignorable="d"
       Title="UpdateCavity" Height="633.626" Width="756.838" 
-      AllowsTransparency="True" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
+      AllowsTransparency="True" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
 
     <Border Background="#FF3D3D3D" BorderBrush="Black" BorderThickness="3,3,3,3" CornerRadius="30,30,30,30">
         <Grid x:Name="GridMainUser">
@@ -19,12 +19,12 @@
             <Grid x:Name="NewUserContent" Margin="0,55,0,0">
                 <Label x:Name="LblNumero" FontSize="28" Foreground="White" Content="Número" HorizontalAlignment="Left" Margin="71,36,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="LblCavity" FontSize="28" Foreground="White" Content="Cavidad" HorizontalAlignment="Left" Margin="74,116,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TxtNum" HorizontalAlignment="Left" FontSize="24" Background="White" Height="70" Margin="194,36,0,0" VerticalAlignment="Top" Width="325"/>
+                <TextBox x:Name="TxtNum" VerticalContentAlignment="Center" HorizontalAlignment="Left" BorderThickness="4" FontSize="24" Background="White" Height="70" Margin="194,36,0,0" VerticalAlignment="Top" Width="325" Padding="5" />
                 <Label x:Name="LblIDCartucho" FontSize="28" Foreground="White" Content="Ubicación ID" HorizontalAlignment="Left" Margin="67,212,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="LblCandado" FontSize="28" Foreground="White" Content="Candado" HorizontalAlignment="Left" Margin="75,299,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TxtCandado" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="195,289,0,0" VerticalAlignment="Top" Width="115"/>
+                <TextBox x:Name="TxtCandado" HorizontalAlignment="Left" VerticalContentAlignment="Center" TextAlignment="Center" FontSize="24" Background="White" Height="63" Margin="195,289,0,0" VerticalAlignment="Top" Width="115"/>
 
-                <ComboBox x:Name="ComboIDCartucho" Background="White" Height="59" HorizontalAlignment="Left" Margin="233,201,0,0" VerticalAlignment="Top" Width="130" FontSize="24">
+                <ComboBox x:Name="ComboIDCartucho" Padding="5" VerticalContentAlignment="Center" Background="White" Height="59" HorizontalAlignment="Left" Margin="233,201,0,0" VerticalAlignment="Top" Width="286" FontSize="24">
                     <!--List of numbers-->
                 </ComboBox>
                 <Button x:Name="BtnUpdateCavDet" ToolTip="Guardar" HorizontalAlignment="Left" Margin="524,481,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="BtnUpdateCavDet_Click">
@@ -36,13 +36,13 @@
                 <Button x:Name="BtnShowImage" HorizontalAlignment="Left" ToolTip="Cancelar" Margin="71,481,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="BtnShowImage_Click" >
                     <materialDesign:PackIcon Kind="Image" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="80" Width="80"/>
                 </Button>
-                <TextBox x:Name="TxtCavity" HorizontalAlignment="Left" FontSize="24" Background="White" Height="70" Margin="194,116,0,0" VerticalAlignment="Top" Width="325"/>
+                <TextBox x:Name="TxtCavity" Padding="5" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontSize="24" Background="White" Height="70" Margin="194,116,0,0" VerticalAlignment="Top" Width="325"/>
                 <Label x:Name="LblContador" FontSize="28" Foreground="White" Content="Contador" HorizontalAlignment="Left" Margin="394,299,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TxtContador" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="524,289,0,0" VerticalAlignment="Top" Width="138"/>
+                <TextBox x:Name="TxtContador" VerticalContentAlignment="Center" TextAlignment="Center" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="524,289,0,0" VerticalAlignment="Top" Width="138"/>
                 <Label x:Name="LblStockMin" FontSize="28" Foreground="White" Content="Stock mínimo" HorizontalAlignment="Left" Margin="11,390,0,0" VerticalAlignment="Top" Height="41"/>
-                <TextBox x:Name="TxtStockMin" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="194,380,0,0" VerticalAlignment="Top" Width="116"/>
+                <TextBox x:Name="TxtStockMin" VerticalContentAlignment="Center" TextAlignment="Center" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="194,380,0,0" VerticalAlignment="Top" Width="116"/>
                 <Label x:Name="LblStockMax" FontSize="28" Foreground="White" Content="Stock Máximo" HorizontalAlignment="Left" Margin="368,390,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="TxtStockMax" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="552,380,0,0" VerticalAlignment="Top" Width="110"/>
+                <TextBox x:Name="TxtStockMax" VerticalContentAlignment="Center" TextAlignment="Center" HorizontalAlignment="Left" FontSize="24" Background="White" Height="63" Margin="552,380,0,0" VerticalAlignment="Top" Width="110"/>
                 <Button x:Name="BtnSearchNum" HorizontalAlignment="Left" ToolTip="Cancelar" Margin="552,35,0,0" VerticalAlignment="Top" Width="142" Height="71" Foreground="#FF404040" Background="#FFF0DE21" Click="BtnSearchNum_Click" >
                     <materialDesign:PackIcon Kind="SearchWeb" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="70" Width="80"/>
                 </Button>

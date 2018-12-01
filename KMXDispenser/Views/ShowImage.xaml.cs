@@ -42,5 +42,29 @@ namespace KMXDispenser.Views
         {
             GridTools.Opacity = 100;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                image.Source = new BitmapImage(new Uri(WpfDisp.cnnClass.imgPIN));
+            }
+            catch
+            {
+                MessageBox.Show("No se puede mostrar la imagen", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                image.Source = new BitmapImage(new Uri(""));
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
