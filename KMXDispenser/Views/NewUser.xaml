@@ -35,7 +35,7 @@
                     <materialDesign:PackIcon x:Name="FingerprintIcon" Kind="Fingerprint" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="100" Width="100" Foreground="White"/>
                 </Button>
                 <Label x:Name="label_Copy2" FontSize="24" Foreground="White" Content="Capturar huella" HorizontalAlignment="Left" Margin="594,160.099,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnSaUser" ToolTip="Guardar" HorizontalAlignment="Left" Margin="432,240,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21">
+                <Button x:Name="btnSaUser" ToolTip="Guardar" HorizontalAlignment="Left" Margin="432,240,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="btnSaUser_Click">
                     <materialDesign:PackIcon Kind="ContentSave" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="80" Width="80"/>
                 </Button>
                 <Button x:Name="btnCloseForm" HorizontalAlignment="Left" ToolTip="Cancelar" Margin="212,240,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="btnCloseForm_Click">

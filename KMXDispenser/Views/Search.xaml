@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:KMXDispenser.Views"
       mc:Ignorable="d" 
       
-      Title="Search" >
+      Title="Search" Loaded="Page_Loaded" >
 
     <Grid x:Name="SearchingGridMain" >
         <Grid x:Name="SearchBar" Height="100" VerticalAlignment="Top" Background="#FF323232">
@@ -50,7 +50,7 @@
                                 <GradientStop Color="#FFDFE012" Offset="0.02"/>
                             </LinearGradientBrush>
                         </TextBlock.Background> Buscar por número de proveedor</TextBlock>
-                    <TextBox x:Name="TxtSearchBox" FontSize="35" Background="#FFF7F7F7" HorizontalAlignment="Left" Width="446" Margin="12,121,0,80.4"/>
+                    <TextBox x:Name="TxtSearchBox" FontSize="35" Background="#FFF7F7F7" HorizontalAlignment="Left" Width="446" Margin="12,121,0,80.4" KeyDown="TxtSearchBox_KeyDown" KeyUp="TxtSearchBox_KeyUp"/>
                     <Button x:Name="SearchButton" Height="69" VerticalAlignment="Top" Margin="464,121,10.4,0" Background="#fff0de21" ToolTip="Buscar" Click="SearchButton_Click">
                         <Button.Effect>
                             <DropShadowEffect/>

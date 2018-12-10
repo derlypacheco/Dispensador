@@ -10,7 +10,7 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize" Width="695" Height="435"  
-        HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen"
+        HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing"
         >
     <Border Background="#FF3D3D3D" BorderBrush="Black" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
         <Border.Effect>
@@ -28,7 +28,7 @@
                 <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="50" FontSize="18" Margin="240,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="421" Background="White"/>
                 <PasswordBox x:Name="txtPass" HorizontalAlignment="Left"  Height="50" FontSize="18" Margin="240,194,0,0"  VerticalAlignment="Top" Width="421" Background="White"/>
                 <TextBox x:Name="comboAccess" FontSize="18" HorizontalAlignment="Left" Height="50" Margin="240,113,0,0" VerticalAlignment="Top" Width="421" Background="White"/>
-                <Button x:Name="btnSalveUser" HorizontalAlignment="Left" Margin="491,268,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21">
+                <Button x:Name="btnSalveUser" HorizontalAlignment="Left" Margin="491,268,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="btnSalveUser_Click">
                     <materialDesign:PackIcon Kind="ContentSave" Margin="0,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="70" Width="70"/>
                 </Button>
                 <Button x:Name="btnCloseForm" HorizontalAlignment="Left" Margin="289,268,0,0" VerticalAlignment="Top" Width="170" Height="80" Foreground="#FF404040" Background="#FFF0DE21" Click="btnCloseForm_Click">

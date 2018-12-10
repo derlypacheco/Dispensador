@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:KMXDispenser.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserInformation">
+      Title="UserInformation" Loaded="Page_Loaded">
 
     <Grid>
         <GroupBox  Margin="10,10,10,10" Padding="0,0,0,0" Background="#FF3F3F3F" >
@@ -29,7 +29,7 @@
                     <Label FontSize="30" Content="Listado de usuarios activos" FontWeight="DemiBold" Foreground="Black"/>
                 </Border>
             </GroupBox.Header>
-            <DataGrid x:Name="GridTableUsuarios" VerticalScrollBarVisibility="Visible" FontSize="16"  Margin="0,85,0,0"/>
+            <DataGrid x:Name="GridTableUsuarios" VerticalScrollBarVisibility="Visible" FontSize="16"  Margin="0,85,0,0" SelectionChanged="GridTableUsuarios_SelectionChanged"/>
         </GroupBox>
         <Grid x:Name="AddEditButtonGrid" Height="70" VerticalAlignment="Top" Margin="0,62,0,0" HorizontalAlignment="Right" Width="280">
             <Grid.ColumnDefinitions>

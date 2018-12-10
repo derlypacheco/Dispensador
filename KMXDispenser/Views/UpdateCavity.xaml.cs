@@ -127,9 +127,64 @@ namespace KMXDispenser.Views
             this.Close();
         }
 
+
+        private void guardaInfoDisp(string idModulo)
+        {
+            // MessageBox.Show(cnnClass.publicCavDet);
+            WpfDisp.cnnClass.Conectar();
+            try
+            {
+                int valueModulo = Convert.ToInt16(WpfDisp.cnnClass.idModuloPublic); // idModuloPublic
+                //MessageBox.Show("ID del modulo: "+valueModulo);
+                // falta rnviar el ID correcto para el where y hacer el update correcto
+                //'"+txtCavidad.Text+ "', '"+cnnClass.UserID+ "', '"+txtCoorX.Text+ "', '"+txtCoorY.Text+ "', '"+txtPinLook.Text+ "', '"+txtPinContador.Text+"', '"+ cnnClass.idModuloPublic + "', '"+txtMaximo.Text+"', '"+txtMinimo.Text+"', '"+ idLASP + "', '"+ valueModulo + "'
+                // string cadena = txtCavidad.Text + " - " + cnnClass.UserID + " - " + txtCoorX.Text + " - " + txtCoorY.Text + " - " + txtPinLook.Text + " - " + txtPinContador.Text + " - " + cnnClass.idModuloPublic + " - " + txtMaximo.Text + " - " + txtMinimo.Text + " - " + idLASP + " - " + cnnClass.idModRelaciones;
+                // MessageBox.Show(cadena);
+                WpfDisp.cnnClass.cnn.Open();
+                MySqlCommand cmd = new MySqlCommand("CALL sp_disp_guardaCavDet('" + TxtCavity.Text + "', '" + WpfDisp.cnnClass.UserID + "', '" + ComboIDCartucho.Text + "', '" + TxtCandado.Text + "', '" + TxtContador.Text + "', '" + WpfDisp.cnnClass.idModuloPublic + "', '" + TxtStockMax.Text + "', '" + TxtStockMin.Text + "', '" + idLASP + "', '" + WpfDisp.cnnClass.idModRelaciones + "')", WpfDisp.cnnClass.cnn);
+                cmd.ExecuteNonQuery();
+                WpfDisp.cnnClass.cnn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("No se ha podido almacenar la información", "Error de comunicación", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
         private void BtnUpdateCavDet_Click(object sender, RoutedEventArgs e)
         {
+            if (BuscarWFMLA() == true)
+            {
+                WpfDisp.cnnClass.Conectar();
+                try
+                {
+                    WpfDisp.cnnClass.cnn.Open();
+                    MySqlDataAdapter cmd = new MySqlDataAdapter("CALL sp_buskFMDisp('" + TxtNum.Text.Trim() + "')", WpfDisp.cnnClass.cnn);
+                    DataTable dt = new DataTable();
+                    cmd.Fill(dt);
+                    if (dt.Rows.Count == 1)
+                    {
+                        TxtNum.BorderBrush = System.Windows.Media.Brushes.Green;
+                        TxtNum.Text = dt.Rows[0]["numPart_Prov_la_disp"].ToString();
+                        idLASP = dt.Rows[0]["id_la_disp"].ToString();
+                        WpfDisp.cnnClass.cnn.Close();
+                        int modID = Convert.ToInt16(WpfDisp.cnnClass.publicCavDet);
+                        guardaInfoDisp(WpfDisp.cnnClass.publicCavDet);
+                        MessageBox.Show("Se ha guardado el registro correctamente", "Actualización correcta", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        TxtNum.BorderBrush = System.Windows.Media.Brushes.Red;
+                        MessageBox.Show("El número de proveedor no corresponde a uno valido", "Número no encontrado", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
 
+                }
+                catch
+                {
+
+                }
+            }
         }
 
         private void BtnShowImage_Click(object sender, RoutedEventArgs e)

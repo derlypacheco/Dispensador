@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KMXDispenser.Views"
         mc:Ignorable="d"  Width="1920" Height="1080"
-        Title="SearchDispenser" Background="#FF494848"  WindowStyle="None" AllowsTransparency="True" WindowState="Maximized">
+        Title="SearchDispenser" Background="#FF494848"  WindowStyle="None" AllowsTransparency="True" WindowState="Maximized" Loaded="Window_Loaded">
     <Grid x:Name="GridDispenserContainer">
         <Grid x:Name="ResultBar" Height="75" VerticalAlignment="Top" Background="#FF323232">
             <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect Kind=FadeIn, Duration=00:00:01}">
@@ -67,7 +67,7 @@
                                 </LinearGradientBrush>
                             </TextBlock.Background>
                         </TextBlock>
-                        <DataGrid x:Name="DatagridModuleApplied" Margin="0,0,0.2,49.6" ></DataGrid>
+                        <DataGrid x:Name="DatagridModuleApplied" Margin="0,0,0.2,49.6" SelectedCellsChanged="DatagridModuleApplied_SelectedCellsChanged" ></DataGrid>
                     </Grid>
                 </materialDesign:Card>
             </materialDesign:TransitioningContent>
@@ -103,8 +103,8 @@
                     <Label x:Name="KeyTitle" Content="Llave:" FontSize="30"  Height="66" />
                     <Label x:Name="TypeTitle" Content="Tipo:" FontSize="30"  Height="66" />
                     <Label x:Name="StockTitle" Content="Existencias:" FontSize="30" Height="66" />
-                    <Label x:Name="LocatePinTitle" Content="Ubicacion del pin:" FontSize="30" Height="66" />
-                    <Button x:Name="BtnShowImage"  FontSize="30" Width="300" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="0,80,0,0" Foreground="#FF494949" Background="#FFF0DE21">
+                    <!--<Label x:Name="LocatePinTitle" Content="Ubicacion del pin:" FontSize="30" Height="66" />-->
+                    <Button x:Name="BtnShowImage"  FontSize="30" Width="300" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="0,80,0,0" Foreground="#FF494949" Background="#FFF0DE21" Click="BtnShowImage_Click">
                         <Grid>
                             <materialDesign:PackIcon Kind="Image" Width="50" Height="50" Foreground="Black" HorizontalAlignment="Left" Margin="-74,-75,0,0"/>
                             <TextBlock Text="Ver imagen" FontSize="30"  VerticalAlignment="Center" Margin="-11,-71,-44.6,31" HorizontalAlignment="Right"/>

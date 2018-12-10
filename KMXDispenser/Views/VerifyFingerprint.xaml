@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:KMXDispenser.Views"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="VerifyFingerprint" Height="450" Width="800" WindowStyle="None" Background="#FF453F3F" WindowState="Maximized">
+        Title="VerifyFingerprint" Height="450" Width="800" WindowStyle="None" Background="#FF453F3F" WindowState="Maximized" Loaded="Window_Loaded">
     <Grid>
         <TextBlock Text="Registre su huella" FontSize="50" Foreground="White" HorizontalAlignment="Center" Margin="203,50,203.6,135.2"/>
         <materialDesign:PackIcon Kind="Fingerprint" Width="100" Height="100" Margin="342,172,351.6,171.2" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>

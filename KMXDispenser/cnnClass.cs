@@ -27,7 +27,7 @@ namespace WpfDisp
         public static String TotalesSurtir; // Solo cuando estan surtiendo el dispensador
         public static Int16 IDtoRestar, cartuchos;
         public static int IDcantrestar;
-        public static string GlobalID_Relacion;
+        public static string GlobalID_Relacion, txtNumeroBuscar;
 
         // String de envio a Arduino // 
         public static string send_fila, send_columna, send_ancla, send_led, send_llave, send_cant, send_accion, send_id, send_ledRojo;
@@ -39,7 +39,7 @@ namespace WpfDisp
         public static string idModRelaciones;
         public static string rutaPDF; 
 
-        public static string PortName = "COM1";
+        public static string PortName = "COM10";
 
        public static void vaciarSenders()
         {
